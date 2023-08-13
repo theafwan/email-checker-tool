@@ -58,10 +58,10 @@ func checkDomain(domain string) {
 		log.Printf("Error! Could not lookup DMARC records: %v\n", err)
 	}
 
-	for _, dmarcRecord := range dmarcRecords {
-		if strings.HasPrefix(dmarcRecord, "v=DMARC1") {
+	for _, record := range dmarcRecords {
+		if strings.HasPrefix(record, "v=DMARC1") {
 			hasDMARC = true
-			dmarcRecord = dmarcRecord
+			dmarcRecord = record
 			break
 		}
 	}
